@@ -1,9 +1,10 @@
-# 超大规模顺序文件
+# big-sequence-file
 
+a big file, similar to java embedded implementation of ``kafka``, providing sequential data access.
 
 ## QuickStart
 
-- 样例代码
+- Sample Code
 
 ``` java
 BigSequenceFile bsf = null;
@@ -27,12 +28,22 @@ try {
 
 ```
 
-详细代码请阅读 [QuickStart.java](src/test/java/io/downgoon/bsf/example/QuickStart.java)
+for more infomation, please read [QuickStart.java](src/test/java/io/downgoon/bsf/example/QuickStart.java) example.
 
 
-- 文件结构
+- maven dependency
 
-比如我们有两个BSF文件，分别是``hello.bsf``和``world.bsf``，那么存储结构形如：
+``` xml
+<dependency>
+  <groupId>com.github.downgoon</groupId>
+  <artifactId>big-sequence-file</artifactId>
+  <version>0.1.0</version>
+</dependency>
+```
+
+- underlying structure
+
+when we new two '.bsf' files: ``new BigSequenceFile("hello.bsf")`` and ``new BigSequenceFile("world.bsf")``, the underlying files may look like as follows:
 
 ``` bash
 $ tree .
@@ -44,9 +55,9 @@ $ tree .
 └── world_2.seg
 ```
 
-其中：``.bsf``存储的是BSF文件的``meta``信息；而``.seg``存储的是BSF文件的``data``信息，或叫``Segment``信息。一个完整的BSF文件，通常包含1个``.bsf``文件和多个``.seg``文件。
+the ``.bsf`` file manages ``meta`` info of the user namespaced ``bsf`` file (e.g. ``hello.bsf``), while multipule ``.seg`` files store ``data`` info. in general, a BSF file always consists of only one ``.bsf`` and several ``.seg`` files in underlying storage layer.
 
 
-## 面向开发者
+## For Developers
 
-- [开发者指南](docs/DeveloperGuide.md)
+- [Developer Guide](docs/DeveloperGuide.md)
