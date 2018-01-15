@@ -28,7 +28,7 @@ try {
 
 ```
 
-for more infomation, please read [QuickStart.java](src/test/java/io/downgoon/bsf/example/QuickStart.java) example.
+for more infomation, please read [QuickStart.java](src/test/java/com/github/downgoon/bsf/example/QuickStart.java) example.
 
 
 - maven dependency
